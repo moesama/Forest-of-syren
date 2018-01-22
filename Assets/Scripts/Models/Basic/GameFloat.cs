@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GameFloat : MonoBehaviour, GameNumber<float>
+public abstract class GameFloat : MonoBehaviour, IGameNumber<float>
 {
     [SerializeField]
     private float _value = 0f;

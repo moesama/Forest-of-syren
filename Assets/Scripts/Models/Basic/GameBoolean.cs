@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class GameBoolean : MonoBehaviour, GameModel<bool>
+public abstract class GameBoolean : MonoBehaviour, IGameModel<bool>
 {
     [SerializeField]
     protected bool value = false;

@@ -1,4 +1,4 @@
-﻿public interface GameNumber<T> : GameModel<T>
+﻿public interface IGameNumber<T> : IGameModel<T>
 {
     T GetMin();
     T GetMax();

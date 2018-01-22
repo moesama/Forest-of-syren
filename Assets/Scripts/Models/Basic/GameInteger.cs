@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GameInteger : MonoBehaviour, GameNumber<int>
+public abstract class GameInteger : MonoBehaviour, IGameNumber<int>
 {
     [SerializeField]
     private int _value = 0;

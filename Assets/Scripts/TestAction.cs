@@ -3,26 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TestAction : MonoBehaviour {
+    public GameObject origin;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
-
-    void OnMouseDown()
+    private void Start()
     {
-        Attack attack = GetComponent<Attack>();
-        if (attack != null)
+        GameAction action = GetComponent<GameAction>();
+        if (action != null)
         {
-            GameObject hurtObj = new GameObject();
-            Hurt hurt = hurtObj.AddComponent<Hurt>();
-            hurt.Prepare(gameObject);
-            hurt.Apply(gameObject);
-            Destroy(hurtObj);
+            action.Prepare(origin);
         }
     }
 }

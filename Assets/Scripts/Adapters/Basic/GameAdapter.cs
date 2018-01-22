@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GameAdapter<T, V> : MonoBehaviour where T: GameModel<V>
+[System.Serializable]
+public abstract class GameAdapter<T, V> : MonoBehaviour, IGameAdapter where T: IGameModel<V>
 {
     public abstract void OnPreCompute(GameObject origin);
     public abstract V OnCompute(GameObject target);
@@ -21,4 +22,15 @@ public abstract class GameAdapter<T, V> : MonoBehaviour where T: GameModel<V>
             OnApply(model, OnCompute(target));
         }
     }
+
+    protected void Compute<M>(GameObject target, DoCompute doCompute) where M : IGameModel<V>
+    {
+        M model = target.GetComponent<M>();
+        if (model != null)
+        {
+            doCompute(model.GetValue());
+        }
+    }
+
+    protected delegate void DoCompute(V value);
 }
